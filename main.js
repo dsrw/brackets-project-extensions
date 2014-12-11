@@ -44,6 +44,9 @@ define(function (require, exports, module) {
                                         $.when.apply($, promises).done(function() {
                                             Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_INFO,
                                                 "Plugins AutoInstalled", "New plugins have been automatically installed. You should restart");
+                                        }).fail(function() {
+                                            Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR,
+                                                "Plugins AutoInstall Error", "Unable to install packages from autoinstall.json");
                                         });
                                     }
                                 });
