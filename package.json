@@ -2,7 +2,7 @@
     "name": "dsrw.project-extensions",
     "title": "Project Extensions",
     "description": "Load extensions from .brackets-extensions in project.",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "author": "Scott Wadden <scott.wadden@emc.com> (https://github.com/dsrw)",
     "license": "MIT",
     "engines": {
