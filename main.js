@@ -18,6 +18,7 @@ define(function (require, exports, module) {
         _oldOpenProject = ProjectManager.openProject;
 
     prefs.definePreference("install", "array", []);
+    prefs.definePreference("autoinstall", "boolean", true);
 
     prefs.on("change", function() {
         var extensions = ExtensionManager.extensions;
@@ -25,7 +26,7 @@ define(function (require, exports, module) {
         var install = prefs.get("install").filter(function(name) {
             return (!extensions[name] || !extensions[name].installInfo) && !_.contains(installing, name);
         });
-        if (install.length) {
+        if (install.length && prefs.get("autoinstall")) {
             installing = installing.concat(install);
             Package._getNodeConnectionDeferred().then(function() {
                 var promises = [];
